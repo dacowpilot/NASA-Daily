@@ -72,15 +72,6 @@ p {
   line-height: 1.8;
 }
 
-h3 {
-  margin: 28px 0 0;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-}
-
 .loading-block {
   min-height: 220px;
   border-radius: 0;
