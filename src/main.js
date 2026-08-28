@@ -20,7 +20,7 @@ const renderDailyLoading = () => {
       <div class="loading-block"></div>
     </article>
   `;
-};
+}
 
 const renderDaily = (data) => {
   const date = new Date(`${data.date}T12:00:00`).toLocaleDateString("en-US", {
