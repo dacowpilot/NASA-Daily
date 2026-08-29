@@ -13,10 +13,72 @@ body {
 
 body {
   min-height: 100vh;
-  padding: 40px 20px;
+  padding: 20px 20px 40px;
+  background: rgb(5, 5, 79);
 }
 
 #app {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: min(100%, 760px);
+  margin: 0 auto 24px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-copy strong {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.nav-button {
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-button:hover,
+.nav-button:focus-visible,
+.nav-button.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f5f5;
+}
+
+.page-shell {
   width: min(100%, 760px);
   margin: 0 auto;
 }
@@ -88,7 +150,7 @@ button {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: background 180ms ease, color 180ms ease;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .gallery-button:hover,
@@ -130,8 +192,9 @@ button {
 
 .gallery-item {
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
 }
 
 .gallery-item img,
@@ -163,20 +226,269 @@ button {
   animation: pulse 1.4s ease-in-out infinite alternate;
 }
 
+.weather-card {
+  padding-bottom: 16px;
+}
+
+.weather-status {
+  margin-bottom: 24px;
+}
+
+.weather-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+.weather-alert {
+  display: inline-block;
+  padding: 8px 0;
+  margin-bottom: 18px;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 22px;
+}
+
+.weather-stat {
+  padding: 14px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.stat-label {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.weather-stat strong {
+  font-size: clamp(1.1rem, 2.8vw, 1.8rem);
+  letter-spacing: -0.05em;
+}
+
+.news-view {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.news-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.news-heading h1 {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.news-item {
+  padding: 16px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.news-item:hover,
+.news-item:focus-within {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.news-item a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-item h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.32;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+.news-source {
+  display: inline-block;
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.news-skeleton {
+  min-height: 68px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  animation: pulse 1.4s ease-in-out infinite alternate;
+}
+
 @keyframes pulse {
   to { opacity: 0.45; }
 }
 
 .loading-block {
   min-height: 220px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.live-view {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.live-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.live-heading h1 {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.earth-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 20px;
+}
+
+.world-map {
+  position: relative;
+  width: min(100%, 520px);
+  aspect-ratio: 2 / 1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #071a32;
+  overflow: hidden;
+}
+
+.world-map img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-point {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+}
+
+.user-point {
+  background: #64f0a4;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.iss-point {
+  background: #ff6b6b;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.geo-status {
+  margin: -8px 0 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
+
+.iss-info {
+  padding: 16px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.iss-info h2 {
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+#iss-data {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.iss-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.iss-stat span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.iss-stat strong {
+  color: #ff6b6b;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
   body {
-    padding: 28px 16px;
+    padding: 20px 16px 28px;
   }
 
   .status-row {
@@ -189,7 +501,9 @@ button {
     flex-direction: column;
   }
 
-  .gallery-grid {
+  .gallery-grid,
+  .weather-grid,
+  #iss-data {
     grid-template-columns: 1fr;
   }
 }
